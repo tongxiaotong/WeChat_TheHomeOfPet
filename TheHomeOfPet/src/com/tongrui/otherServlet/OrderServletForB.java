@@ -36,7 +36,7 @@ public class OrderServletForB extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");// 告诉浏览器中文编码方式
 		String data = new String();
 		ArrayList orderList = new ArrayList<OrderDefine>();
-	
+		PrintWriter out = response.getWriter();
 	
 		String sql_quertOrder = "select * from order_info where dealFlag='1'";
 		try {
@@ -53,6 +53,8 @@ public class OrderServletForB extends HttpServlet {
 		JSONArray jsonArray = JSONArray.fromObject(orderList);
 		data = jsonArray.toString();
 		System.out.println(data);
+		out.write(data);
+		out.flush();
 
 	}
 
