@@ -2,6 +2,7 @@ package com.chongwuzhijia.dataDefine;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 import net.sf.json.JSONArray;
 
@@ -19,6 +20,22 @@ public class OrderDefine {
 		this.orderCount = orderCount;
 		this.orderPerson = orderPerson;
 	}
+	public OrderDefine(int productId, String productName, double price,
+			int orderCount, String orderPerson, String dealFlag,
+			String address, String orderTime) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.price = price;
+		this.orderCount = orderCount;
+		this.orderPerson = orderPerson;
+		this.dealFlag = dealFlag;
+		this.address = address;
+		this.orderTime = orderTime;
+	}
+	public String getOrderTime() {
+		return orderTime;
+	}
 	public OrderDefine(String orderPerson, String address, int c, String productName) {
 		
 		// TODO Auto-generated constructor stub
@@ -35,7 +52,7 @@ public class OrderDefine {
 	private String orderPerson;
 	private String dealFlag;
 	private String address;
-	private Timestamp timestamp;
+	private String orderTime;
 	public String getDealFlag() {
 		return dealFlag;
 	}
@@ -82,16 +99,18 @@ public class OrderDefine {
 		this.orderPerson = orderPerson;
 	}
 	
-	public void setOrderTime(Timestamp timestamp) {
+	public void setOrderTime(String orderTime) {
 		// TODO Auto-generated method stub
-		this.timestamp=timestamp;
+		this.orderTime=orderTime;
 	}
 	public static void main(String args[]){
 		ArrayList orderList=new ArrayList<OrderDefine>();
 		OrderDefine od1=new OrderDefine(1,"“∞÷Ì»‚",5.5,1,"tongrui");
 		OrderDefine od2=new OrderDefine(2,"—Ú»‚",15.5,2,"tongrui");
+		OrderDefine od3=new OrderDefine(3,"—Ú»‚",15.5,2,"tongrui","1","xuyong","2017-11-21");
 		orderList.add(od1);
 		orderList.add(od2);
+		orderList.add(od3);
 		JSONArray jsonArray = JSONArray.fromObject(orderList);
 		String data=jsonArray.toString();
 		System.out.println(data);

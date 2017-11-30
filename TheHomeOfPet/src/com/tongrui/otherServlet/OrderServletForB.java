@@ -42,6 +42,12 @@ public class OrderServletForB extends HttpServlet {
 		try {
 			orderList = (ArrayList) MysqlUtil.queryData(UrlDefine.URL,
 					UrlDefine.USER, UrlDefine.PASSWORD, sql_quertOrder);
+			for(int i=0;i<orderList.size();i++)
+			{
+				OrderDefine od=(OrderDefine)(orderList.get(i));
+				String date=od.getOrderTime();
+				System.out.println(date);
+			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

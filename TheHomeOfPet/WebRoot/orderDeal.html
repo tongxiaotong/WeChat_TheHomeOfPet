@@ -24,16 +24,16 @@
   
    	<script>
     	function getDataFromSevlet(){
-    	var url_test="http://localhost:8080/TheHomeOfPet/OrderServletForB?";//用于本地测试使用
+    	var url_test="http://localhost:8080/TheHomeOfPet/OrderServletForB?"+new Date().getTime();//用于本地测试使用
     	var url_pro="http://39.108.104.227/TheHomeOfPet/OrderServletForB?";//用于外网正式使用
     	var oul=document.getElementById("ul1");
     
-  		tongrui_ajax(url_test,postdata,function(str){  		
+  		tongrui_ajax(url_test,null,function(str){  		
   		var arr=JSON.parse(str);//解析得到的JSON数据
   		for(var i=0;i<arr.length;i++){
   			var li=document.createElement("li");
   			
-  			li.innerHTML="订购人:"+arr[i].order_person+"|订购时间"+arr[i].currentTime+"订购数量:<strong>"+arr[i].orderCount+"</strong>|产品名称:<span>"+arr[i].productName+"</span>";
+  			li.innerHTML="送货地址:"+arr[i].address+"|订购人:"+arr[i].orderPerson+"|订购时间"+arr[i].orderTime+"|订购数量:<strong>"+arr[i].orderCount+"</strong>|产品名称:<span>"+arr[i].productName+"</span>";
   			li.onclick=function(){alert("test!");};
   			oul.appendChild(li);
   			
