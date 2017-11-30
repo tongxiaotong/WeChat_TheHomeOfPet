@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>coreServlet</servlet-name>
+    <servlet-class>com.tongrui.servlet.CoreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.tongrui.otherServlet.OrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OrderInfoDis</servlet-name>
+    <servlet-class>com.tongrui.otherServlet.OrderInfoDis</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OrderMakeServlet</servlet-name>
+    <servlet-class>com.tongrui.otherServlet.OrderMakeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.tongrui.otherServlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OrderServletForB</servlet-name>
+    <servlet-class>com.tongrui.otherServlet.OrderServletForB</servlet-class>
+  </servlet>
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>coreServlet</servlet-name>
+    <url-pattern>/TheHomeOfPet/CoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderInfoDis</servlet-name>
+    <url-pattern>/OrderInfoDis</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderMakeServlet</servlet-name>
+    <url-pattern>/OrderMakeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderServletForB</servlet-name>
+    <url-pattern>/OrderServletForB</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

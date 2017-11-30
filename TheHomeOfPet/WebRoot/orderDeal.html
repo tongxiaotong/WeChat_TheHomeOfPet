@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>orderDeal.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+  	<script src="test.js"></script>
+  	<script src="tongrui.js"></script>
+
+  </head>
+
+  <body>
+  <button type="button" id="ok_button" onclick="getDataFromSevlet()">查询</button>
+  <ul id="ul1"></ul>
+  </body>
+  
+  
+   	<script>
+    	function getDataFromSevlet(){
+    	var url_test="http://localhost:8080/TheHomeOfPet/OrderServletForB?";//用于本地测试使用
+    	var url_pro="http://39.108.104.227/TheHomeOfPet/OrderServletForB?";//用于外网正式使用
+    	var oul=document.getElementById("ul1");
+    
+  		tongrui_ajax(url_test,postdata,function(str){  		
+  		var arr=JSON.parse(str);//解析得到的JSON数据
+  		for(var i=0;i<arr.length;i++){
+  			var li=document.createElement("li");
+  			
+  			li.innerHTML="订购人:"+arr[i].order_person+"|订购时间"+arr[i].currentTime+"订购数量:<strong>"+arr[i].orderCount+"</strong>|产品名称:<span>"+arr[i].productName+"</span>";
+  			li.onclick=function(){alert("test!");};
+  			oul.appendChild(li);
+  			
+  		}
+  			
+  		
+  	 });
+  	}
+    </script>
+</html>
