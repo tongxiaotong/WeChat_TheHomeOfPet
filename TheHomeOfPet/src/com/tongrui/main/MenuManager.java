@@ -27,27 +27,27 @@ public class MenuManager {
 	 * @return
 	 */
 	private static Menu getMenu() {
-		ViewButton btn11 = new ViewButton();
-		btn11.setName("生态野味");
-		btn11.setType("view");
-		btn11.setUrl("http://m.taobao.com");
+		ClickButton btn11 = new ClickButton();
+		btn11.setName("生态美味");
+		btn11.setType("click");
+		btn11.setKey("STMW");
 
-		ViewButton btn12 = new ViewButton();
+		ClickButton btn12 = new ClickButton();
 		btn12.setName("宠物业务");
-		btn12.setType("view");
-		btn12.setUrl("http://m.taobao.com");
+		btn12.setType("click");
+		btn12.setKey("CWYW");
 
 		
 
 		ViewButton btn21 = new ViewButton();
 		btn21.setName("订单详情");
 		btn21.setType("view");
-		btn21.setUrl("http://39.108.104.227/TheHomeOfPet/my_order.html");
+		btn21.setUrl("http://www.rejet.cn/TheHomeOfPet/my_order.html");
 
 		ViewButton btn22 = new ViewButton();
 		btn22.setName("我要订货");
 		btn22.setType("view");
-		btn22.setUrl("http://39.108.104.227/TheHomeOfPet/orderMake.html");
+		btn22.setUrl("http://www.rejet.cn/TheHomeOfPet/orderMake.html");
 
 		ClickButton btn31 = new ClickButton();
 		btn31.setName("商务合作");
@@ -57,7 +57,7 @@ public class MenuManager {
 		ViewButton btn32 = new ViewButton();
 		btn32.setName("订单管理");
 		btn32.setType("view");
-		btn32.setUrl("http://39.108.104.227/TheHomeOfPet/login.html");
+		btn32.setUrl("http://www.rejet.cn/TheHomeOfPet/login.html");
 		
 		ComplexButton mainBtn1 = new ComplexButton();
 		mainBtn1.setName("商品信息");

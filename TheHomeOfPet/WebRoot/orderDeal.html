@@ -18,29 +18,72 @@
 
   <body>
   <button type="button" id="ok_button" onclick="getDataFromSevlet()">查询</button>
+  <button type="button" id="deal_button" onclick="dealData()">处理</button>
   <ul id="ul1"></ul>
   </body>
   
   
    	<script>
+   	
+   	    var id;
+   	  	var liStr;
     	function getDataFromSevlet(){
     	var url_test="http://localhost:8080/TheHomeOfPet/OrderServletForB?"+new Date().getTime();//用于本地测试使用
-    	var url_pro="http://39.108.104.227/TheHomeOfPet/OrderServletForB?";//用于外网正式使用
+    	var url_pro="http://www.rejet.cn/TheHomeOfPet/OrderServletForB?"+new Date().getTime();//用于外网正式使用
+    
     	var oul=document.getElementById("ul1");
     
-  		tongrui_ajax(url_test,null,function(str){  		
-  		var arr=JSON.parse(str);//解析得到的JSON数据
+  		tongrui_ajax(url_pro,null,function(str){  		
+  	    arr=JSON.parse(str);//解析得到的JSON数据
   		for(var i=0;i<arr.length;i++){
   			var li=document.createElement("li");
+  			 //得到ID值后传给servlet用于订单处理
   			
-  			li.innerHTML="送货地址:"+arr[i].address+"|订购人:"+arr[i].orderPerson+"|订购时间"+arr[i].orderTime+"|订购数量:<strong>"+arr[i].orderCount+"</strong>|产品名称:<span>"+arr[i].productName+"</span>";
-  			li.onclick=function(){alert("test!");};
+  			li.innerHTML="id:"+arr[i].productId+"|送货地址:"+arr[i].address+"|订购人:"+arr[i].orderPerson+"|订购时间"+arr[i].orderTime+"|订购数量:<strong>"+arr[i].orderCount+"</strong>|产品名称:<span>"+arr[i].productName+"</span>";
+  			li.onclick=function(){
+  					this.style.background = "grey";
+  					var content=this.innerHTML;
+  					liStr=content.substring(3, content.indexOf("|送货地址"));
+  					
+  				};
   			oul.appendChild(li);
   			
-  		}
-  			
+  		}	
   		
   	 });
   	}
+  	
+  	
+  	 function dealData(){
+  		var url_pro_deal="http://www.rejet.cn/TheHomeOfPet/DealLiServlet?id="+id+"&"+new Date().getTime();;//用于外网正式使用id="+id;
+  	 	id=getLiContent();
+  	 	alert(id);
+  	 	if(id==null)
+  	 	{
+  	 		alert("请先点击待处理订单！");
+  	 	}
+  	 	
+  		else{
+  			
+	  		tongrui_ajax(url_pro_deal,null,function(str){
+	  			if(str=="订单处理成功")
+	  			{
+	  			alert("订单处理完成！");
+	  			}
+	  			else
+	  			{
+	  			alert("订单处理失败！");
+	  			}
+	  		});
+  		}
+  		
+  	 }
+  	 
+  	 
+  	 function getLiContent(){
+  	 	
+  	 	return liStr;
+  	 	
+  	 }
     </script>
 </html>

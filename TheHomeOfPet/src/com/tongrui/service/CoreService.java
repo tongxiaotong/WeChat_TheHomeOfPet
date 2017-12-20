@@ -4,12 +4,16 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.tongrui.message.resp.Article;
+import com.tongrui.message.resp.NewsMessage;
 import com.tongrui.message.resp.TextMessage;
 import com.tongrui.mysqlUtil.MysqlUtil;
 import com.tongrui.mysqlUtil.UrlDefine;
@@ -56,45 +60,46 @@ public class CoreService {
 				//消息内容
 				String messageContent=requestMap.get("Content");
 				
-				if(messageContent=="电话"){
+				if(messageContent.equals("电话")){
 					respContent="程杰：13309081317/n童海燕：18008236668";
 				}
-				else if(messageContent=="地址"){
-					respContent="敘永縣西外街道農貿市場";
+				else if(messageContent.equals("地址")){
+					respContent="敘永县西外街道农贸市场";
 				}else{
-					respContent="請輸入电话或者地址二字查询相关信息";
+					respContent="请输入电话或者地址二字查询相关信息";
 				}
-/*				String readResult=MysqlUtil.queryData(UrlDefine.URL,UrlDefine.USER,UrlDefine.PASSWORD,messageContent);
-				
-				if(readResult!=null)
-				{
-					respContent=readResult;
-					
-				}
-				else
-				{
-					respContent="输入明细二字可查询商品价格;/n输入电话二字可查询联系方式";
-				} */
+				textMessage.setContent(respContent);
+				respXml=MessageUtil.messageToXml(textMessage);
 			}
 			// 图片消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
-				respContent = "您发送的是图片消息！";
+				respContent = "您发送的是图片消息,请输入电话或者地址二字查询相关信息！";
+				textMessage.setContent(respContent);
+				respXml=MessageUtil.messageToXml(textMessage);
 			}
 			// 语音消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {
-				respContent = "您发送的是语音消息！";
+				respContent = "您发送的是语音消息,请输入电话或者地址二字查询相关信息！";
+				textMessage.setContent(respContent);
+				respXml=MessageUtil.messageToXml(textMessage);
 			}
 			// 视频消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VIDEO)) {
-				respContent = "您发送的是视频消息！";
+				respContent = "您发送的是视频消息,请输入电话或者地址二字查询相关信息！";
+				textMessage.setContent(respContent);
+				respXml=MessageUtil.messageToXml(textMessage);
 			}
 			// 地理位置消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {
-				respContent = "您发送的是地理位置消息！";
+				respContent = "您发送的是地理位置消息,请输入电话或者地址二字查询相关信息！";
+				textMessage.setContent(respContent);
+				respXml=MessageUtil.messageToXml(textMessage);
 			}
 			// 链接消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) {
-				respContent = "您发送的是链接消息！";
+				respContent = "您发送的是链接消息,请输入电话或者地址二字查询相关信息！";
+				textMessage.setContent(respContent);
+				respXml=MessageUtil.messageToXml(textMessage);
 			}
 			// 事件推送
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
@@ -102,7 +107,7 @@ public class CoreService {
 				String eventType = requestMap.get("Event");
 				// 关注
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-					respContent = "谢谢您的关注！";
+					respContent = "谢谢您的关注,请输入电话或者地址二字查询相关信息,或点击菜单进行相关操作！";
 				}
 				// 取消关注
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
@@ -120,20 +125,41 @@ public class CoreService {
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
 					// TODO 处理菜单点击事件
 					String buttonKey=requestMap.get("EventKey");
-					// 处理菜单点击事件之联系方式
-					if(buttonKey.equals("Contact")){
+					// 处理菜单点击生态美味事件
+					if(buttonKey.equals("STMW")){
 						
+						respContent="来自大自然的馈赠，丹山养殖场为您提供海鲜、腊味、野味等各种美味，详情请联系海燕：18008236668或程杰：13309081317";
+						textMessage.setContent(respContent);
+						respXml=MessageUtil.messageToXml(textMessage);
 					}
-					// 处理菜单点击事件之商务合作
+					// 处理菜单点击宠物业务事件
+					else if(buttonKey.equals("CWYW")){
+						respContent="亲，宠物之家为您提供宠物各项清洁、医疗及相关周边等服务，我们有专业的团队及技术人员，详情请联系海燕：18008236668或程杰：13309081317";
+						textMessage.setContent(respContent);
+						respXml=MessageUtil.messageToXml(textMessage);
+					}
+					// 处理菜单商务合作事件
 					else if(buttonKey.equals("Corperation")){
-						
+						Article article=new Article();
+						article.setTitle("商务合作");
+						article.setDescription("商务合作请联系程杰：13309081317\n\n地址：叙永县南环农贸市场-丹山野生养殖场与宠物之家");
+						article.setUrl("");
+						article.setPicUrl("");
+						List<Article> articleList=new ArrayList<Article>();
+						articleList.add(article);
+						//创建图文信息
+						NewsMessage  newsMsg=new NewsMessage();
+						newsMsg.setFromUserName(toUserName);
+						newsMsg.setCreateTime(new Date().getTime());
+						newsMsg.setToUserName(fromUserName);
+						newsMsg.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+						newsMsg.setArticleCount(articleList.size());
+						newsMsg.setArticles(articleList);
+						respXml=MessageUtil.messageToXml(newsMsg);
 					}
 				}
 			}
-			// 设置文本消息的内容
-			textMessage.setContent(respContent);
-			// 将文本消息对象转换成xml
-			respXml = MessageUtil.messageToXml(textMessage);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

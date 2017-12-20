@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 
 import com.chongwuzhijia.dataDefine.OrderDefine;
+import com.tongrui.mysqlUtil.MysqlUtil;
+import com.tongrui.mysqlUtil.UrlDefine;
 
-public class OrderInfoDis extends HttpServlet {
+public class DealLiServlet extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
@@ -30,24 +32,24 @@ public class OrderInfoDis extends HttpServlet {
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");//告诉浏览器中文编码方式
-		ArrayList orderList=new ArrayList<OrderDefine>();
-		OrderDefine od1=new OrderDefine(1,"野猪肉",5.5,1,"tongrui");
-		OrderDefine od2=new OrderDefine(2,"羊肉",15.5,2,"tongrui");
-		orderList.add(od1);
-		orderList.add(od2);
-		JSONArray jsonArray = JSONArray.fromObject(orderList);
-		String data=jsonArray.toString();
-//		String data=request.getAttribute("order_info").toString();
 		PrintWriter out = response.getWriter();
-		if(data==null){
-			out.write("null data!");
-		}
-		else{
-			out.write(data);
-		}
 		
+		
+		String id=request.getParameter("id");
+		String updateSql="UPDATE order_info SET dealFlag='1' WHERE id="+id;
+		int result=MysqlUtil.updateDealFlag(UrlDefine.URL,
+				UrlDefine.USER, UrlDefine.PASSWORD, updateSql);
+		if(result==0)
+		{
+			out.write("订单处理失败");
+			
+		}else
+		{
+			out.write("订单处理成功");
+		}
 		out.flush();
 		out.close();
+			
 	}
 
 	/**

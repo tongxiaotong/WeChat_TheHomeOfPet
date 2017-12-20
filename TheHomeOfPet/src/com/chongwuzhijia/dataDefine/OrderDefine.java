@@ -11,20 +11,20 @@ public class OrderDefine {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public OrderDefine(int productId, String productName, double price,
+	public OrderDefine(int id, String productName, double price,
 			int orderCount, String orderPerson) {
 		super();
-		this.productId = productId;
+		this.id = id;
 		this.productName = productName;
 		this.price = price;
 		this.orderCount = orderCount;
 		this.orderPerson = orderPerson;
 	}
-	public OrderDefine(int productId, String productName, double price,
+	public OrderDefine(int id, String productName, double price,
 			int orderCount, String orderPerson, String dealFlag,
 			String address, String orderTime) {
 		super();
-		this.productId = productId;
+		this.id = id;
 		this.productName = productName;
 		this.price = price;
 		this.orderCount = orderCount;
@@ -45,7 +45,7 @@ public class OrderDefine {
 		this.orderPerson = orderPerson;
 	}
 	
-	private int productId;
+	private int id;
 	private	String productName;
 	private double price;
 	private int orderCount;
@@ -69,10 +69,10 @@ public class OrderDefine {
 		this.price = price;
 	}
 	public int getProductId() {
-		return productId;
+		return id;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProductId(int id) {
+		this.id = id;
 	}
 	public String getProductName() {
 		return productName;

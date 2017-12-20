@@ -9,8 +9,8 @@
     <servlet-class>com.tongrui.otherServlet.OrderServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>OrderInfoDis</servlet-name>
-    <servlet-class>com.tongrui.otherServlet.OrderInfoDis</servlet-class>
+    <servlet-name>DealLiServlet</servlet-name>
+    <servlet-class>com.tongrui.otherServlet.DealLiServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>OrderMakeServlet</servlet-name>
@@ -38,8 +38,8 @@
     <url-pattern>/OrderServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>OrderInfoDis</servlet-name>
-    <url-pattern>/OrderInfoDis</url-pattern>
+    <servlet-name>DealLiServlet</servlet-name>
+    <url-pattern>/DealLiServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>OrderMakeServlet</servlet-name>

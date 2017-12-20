@@ -1,0 +1,31 @@
+[ERROR] 2017-11-13 09:57:28,487    com.tongrui.util.CommonUtil 获取token失败 errcode:40164 errmsg:invalid ip 118.122.49.144, not in whitelist hint: [Ly0285e514]
+[ERROR] 2017-11-13 10:00:07,154      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [2Z8L60443vr21]
+[INFO ] 2017-11-13 10:00:07,169   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 10:23:11,299      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [_oo_Ra0828vr26]
+[INFO ] 2017-11-13 10:23:11,300   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 10:24:44,795      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [4SCFTA0921vr20]
+[INFO ] 2017-11-13 10:24:44,796   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 10:28:51,387      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [IykkHa0168vr24]
+[INFO ] 2017-11-13 10:28:51,388   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 10:41:24,077      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [Spz8LA0920vr25]
+[INFO ] 2017-11-13 10:41:24,078   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 11:02:05,947      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [7k_7va0162vr26]
+[INFO ] 2017-11-13 11:02:05,947   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 11:03:56,162      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [0cHLea0272vr26]
+[INFO ] 2017-11-13 11:03:56,162   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 11:24:37,794      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [z0g5oA0514vr22]
+[INFO ] 2017-11-13 11:24:37,795   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 11:41:58,320      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [LEo9ca0555vr26]
+[INFO ] 2017-11-13 11:41:58,321   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 13:38:08,784      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [ruNHjA0525vr19]
+[INFO ] 2017-11-13 13:38:08,785   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 13:39:03,137      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [VTrDWa0579vr24]
+[INFO ] 2017-11-13 13:39:03,137   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 13:41:39,948      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [EthvZa0736vr23]
+[INFO ] 2017-11-13 13:41:39,948   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 13:42:21,958      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [kd2zVA0778vr22]
+[INFO ] 2017-11-13 13:42:21,958   com.tongrui.main.MenuManager 菜单创建失败！
+[ERROR] 2017-11-13 13:43:37,936      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40016 errmsg:invalid button size hint: [i26Pwa0854vr26]
+[INFO ] 2017-11-13 13:43:37,937   com.tongrui.main.MenuManager 菜单创建失败！
+[INFO ] 2017-11-13 13:44:11,041   com.tongrui.main.MenuManager 菜单创建成功！
+[INFO ] 2017-11-13 17:20:54,319   com.tongrui.main.MenuManager 菜单创建成功！

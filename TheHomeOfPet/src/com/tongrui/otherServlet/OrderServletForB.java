@@ -38,7 +38,7 @@ public class OrderServletForB extends HttpServlet {
 		ArrayList orderList = new ArrayList<OrderDefine>();
 		PrintWriter out = response.getWriter();
 	
-		String sql_quertOrder = "select * from order_info where dealFlag='1'";
+		String sql_quertOrder = "select * from order_info where dealFlag='0'";//deaLFlag=0表示客户刚下订单，订单未处理。为1则表示订单已经处理
 		try {
 			orderList = (ArrayList) MysqlUtil.queryData(UrlDefine.URL,
 					UrlDefine.USER, UrlDefine.PASSWORD, sql_quertOrder);

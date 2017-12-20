@@ -1,0 +1,3 @@
+[ERROR] 2017-12-15 17:16:57,311      com.tongrui.util.MenuUtil 创建菜单失败 errcode:40054 errmsg:invalid sub button url domain hint: [lv4.Ba0433vr23]
+[INFO ] 2017-12-15 17:16:57,315   com.tongrui.main.MenuManager 菜单创建失败！
+[INFO ] 2017-12-15 17:24:56,042   com.tongrui.main.MenuManager 菜单创建成功！

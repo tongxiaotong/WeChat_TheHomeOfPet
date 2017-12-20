@@ -3,7 +3,10 @@ package com.tongrui.mysqlUtil;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.chongwuzhijia.dataDefine.EmployeeDefine;
@@ -58,12 +61,18 @@ public class MysqlUtil {
 		rs = ps.executeQuery(sql);
 		while (rs.next()) {
 			OrderDefine order_info=new OrderDefine();
-			order_info.setProductId(rs.getInt("productId"));
+			order_info.setProductId(rs.getInt("id"));
 			order_info.setProductName(rs.getString("productName"));
-			order_info.setPrice(rs.getInt("price"));
 			order_info.setOrderCount(rs.getInt("count"));
 			order_info.setOrderPerson(rs.getString("order_person"));
-			order_info.setOrderTime(rs.getTimestamp("currentTime"));
+			
+			Date date=new Date(rs.getTimestamp("currentTime").getTime());
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			String date_dis=format.format(date);
+			System.out.println(date_dis);
+			order_info.setOrderTime(date_dis);
+		
+			order_info.setAddress(rs.getString("address"));
 		    list.add(order_info);
 	//		System.out.println(telnum);
 		}
@@ -110,6 +119,30 @@ public class MysqlUtil {
 	return list;
 	
 	}
+	
+	public static int updateDealFlag(String url, String user, String password,
+			String updateSql) {
+		int rs=0;
+		// TODO Auto-generated method stub
+		try {
+			con=getConnect(url,user,password);
+			ps = (PreparedStatement) con.prepareStatement(updateSql);
+		    rs=ps.executeUpdate();
+		    closeConnect();
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+		
+		
+		 
+	}
 
 	public static void main(String args[]){
 		String sql="172008";
@@ -129,4 +162,6 @@ public class MysqlUtil {
 			e.printStackTrace();
 		}
 	}
+
+
 }

@@ -43,6 +43,7 @@ public class OrderMakeServlet extends HttpServlet {
 		try {
 			MysqlUtil.updateData(UrlDefine.URL,
 					UrlDefine.USER, UrlDefine.PASSWORD, sql_insert,order);
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,7 +52,7 @@ public class OrderMakeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		PrintWriter out = response.getWriter();
-		
+		out.write("订单订货成功，我们即将为您服务！");
 		out.flush();
 		out.close();
 	}

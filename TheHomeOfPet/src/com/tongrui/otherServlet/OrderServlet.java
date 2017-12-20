@@ -41,11 +41,11 @@ public class OrderServlet extends HttpServlet {
 		ArrayList orderList = new ArrayList<OrderDefine>();
 		String tel = request.getParameter("tel");
 		System.out.println(tel);
-		String sql_quertOrder = "select * from order_info where order_person="
+		String sql_queryOrder = "select * from order_info where order_person="
 				+ tel;
 		try {
 			orderList = (ArrayList) MysqlUtil.queryData(UrlDefine.URL,
-					UrlDefine.USER, UrlDefine.PASSWORD, sql_quertOrder);
+					UrlDefine.USER, UrlDefine.PASSWORD, sql_queryOrder);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

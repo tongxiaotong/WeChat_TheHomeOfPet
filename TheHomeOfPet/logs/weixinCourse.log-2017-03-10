@@ -1,0 +1,2 @@
+[ERROR] 2017-03-10 11:07:38,011 org.liufeng.course.util.MenuUtil 创建菜单失败 errcode:48001 errmsg:api unauthorized hint: [RPKDhA0419rsz8!]
+[INFO ] 2017-03-10 11:07:38,011   com.tongrui.main.MenuManager 菜单创建失败！
